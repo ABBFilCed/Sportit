@@ -3,11 +3,16 @@
     <q-header elevated>
       <q-toolbar style="height: 100px; background-color: dodgerblue">
 
-        <q-toolbar-title>
+        <q-toolbar-title class="col">
           Sportit mc sport
         </q-toolbar-title>
 
-        <div>hej</div>
+        <div class="col text-center row" style="list-style-type:none">
+          <li class="col"><router-link to="/kontakt">Kontakt</router-link></li>
+          <li class="col"><router-link to="/anlaggningar">Anläggningar</router-link></li>
+          <li class="col"><router-link to="/klubben">För klubben</router-link></li>
+          <li class="col"><router-link to="/login">Logga in</router-link></li>
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -26,3 +31,20 @@ export default {
   }
 }
 </script>
+<style>
+li{
+  display:inline-block;
+  margin: 0 10px;
+}
+a{
+  color:white;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 6px 8px;
+  border-radius:10px
+}
+.router-link-active{
+  background: #eee;
+  color:dodgerblue
+}
+</style>
