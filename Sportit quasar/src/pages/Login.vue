@@ -1,10 +1,16 @@
 <template>
-  <div>Logga in</div>
+  <q-page>
+    <div style="height:700px">Logga in</div>
+    <bottom-information></bottom-information>
+  </q-page>
 </template>
 
 <script>
+import BottomInformation from '../components/BottomInformation.vue'
 export default {
-
+  components: {
+    BottomInformation
+  }
 }
 </script>
 

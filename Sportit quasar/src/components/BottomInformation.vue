@@ -4,7 +4,7 @@
       <q-icon name="facebook" class="q-pr-md"/>
       <q-icon name="ac_unit" class="q-pr-md"/>
       <q-icon name="people" class="q-pr-md"/>
-      <q-icon name="sports_tennis" />
+      <li><a href="https://www.youtube.com/watch?v=yn0_6T4HwHs" >hej</a></li>
     </div>
     <div class="col text-center q-pt-md" style="color:white">
       Det är vi som är sportit och vi är såhär gamla nånting nånting info jadajada info hit info dit hejhejhejhjehjehjehjehjehjehjehjehjehjehjehjehjehjehjehjehjhjhej

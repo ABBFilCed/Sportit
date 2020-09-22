@@ -4,7 +4,7 @@
       <q-toolbar style="height: 100px; background-color: dodgerblue">
 
         <q-toolbar-title class="col">
-          Sportit mc sport
+          <router-link to="/">Sportit mc sport</router-link>
         </q-toolbar-title>
 
         <div class="col text-center row" style="list-style-type:none">
