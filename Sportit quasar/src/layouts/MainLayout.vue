@@ -44,7 +44,7 @@ a{
   border-radius:10px
 }
 .router-link-active{
-  background: #eee;
+  background: white;
   color:dodgerblue
 }
 </style>
