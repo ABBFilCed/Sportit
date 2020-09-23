@@ -1,16 +1,16 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar style="height: 100px; background-color: dodgerblue">
+      <q-toolbar style="height: 135px; background-color: dodgerblue">
 
-        <q-toolbar-title class="col">
-          <router-link to="/" exact>Sportit mc sport</router-link>
+        <q-toolbar-title class="">
+          <router-link to="/" exact style="background-color:dodgerblue; margin-left:20px;"><q-img src="../images/sportit-logga-jenny-liten.png" style="height: 130px; max-width: 130px"></q-img></router-link>
         </q-toolbar-title>
 
-        <div class="col text-center row" style="list-style-type:none">
+        <div class=" text-right row q-gutter-md" style="list-style-type:none">
           <li class="col"><router-link to="/kontakt" exact>Kontakt</router-link></li>
           <li class="col"><router-link to="/anlaggningar" exact>Anläggningar</router-link></li>
-          <li class="col"><router-link to="/klubben" exact>För klubben</router-link></li>
+          <li class="col"><router-link to="/klubben" exact>Klubben</router-link></li>
           <li class="col"><router-link to="/login" exact>Logga in</router-link></li>
         </div>
       </q-toolbar>
@@ -41,7 +41,8 @@ a{
   text-decoration: none;
   font-size: 20px;
   padding: 6px 8px;
-  border-radius:10px
+  border-radius:10px;
+
 }
 .router-link-active{
   background: white;

@@ -1,10 +1,10 @@
 <template>
   <div style="background-color:dimgray; height: 130px;" class="row q-mt-lg">
     <div class="col text-center text-white q-pt-md" style="font-size:3em">
-      <q-icon name="facebook" class="q-pr-md"/>
-      <q-icon name="ac_unit" class="q-pr-md"/>
-      <q-icon name="people" class="q-pr-md"/>
-      <li><a href="https://www.youtube.com/watch?v=yn0_6T4HwHs" >hej</a></li>
+      <q-btn flat round size="xl" type="a" href="start/pick-quasar-flavour" target="_blank" icon="facebook"/>
+      <q-btn flat round size="xl" type="a" href="start/pick-quasar-flavour" target="_blank" icon="ion-logo-twitter"/>
+      <q-btn flat round size="xl" type="a" href="start/pick-quasar-flavour" target="_blank" icon="ion-logo-instagram"/>
+      <q-btn flat round size="xl" type="a" href="start/pick-quasar-flavour" target="_blank" icon="ion-logo-snapchat"/>
     </div>
     <div class="col text-center q-pt-md" style="color:white">
       Det är vi som är sportit och vi är såhär gamla nånting nånting info jadajada info hit info dit hejhejhejhjehjehjehjehjehjehjehjehjehjehjehjehjehjehjehjehjhjhej
