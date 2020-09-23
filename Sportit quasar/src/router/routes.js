@@ -35,7 +35,7 @@ const routes = [
       { path: '', component: () => import('pages/Anlaggningar.vue') }
     ]
   },
-
+  // importera alla routes
   // Always leave this as last one,
   // but you can also remove it
   {

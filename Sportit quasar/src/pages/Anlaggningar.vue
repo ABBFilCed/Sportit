@@ -1,6 +1,7 @@
 <template>
   <q-page>
-    <div style="height:700px">Anläggningar</div>
+    <div style="background-color: gainsboro; height: 100px"></div>
+    <div class="text-center q-pa-xl" style="height:700px">Anläggningar</div>
     <bottom-information></bottom-information>
   </q-page>
 </template>
