@@ -1,6 +1,11 @@
 <template>
   <q-page>
-    <div style="background-color: gainsboro; height: 100px"></div>
+    <q-card class="my-card">
+      <q-parallax
+        src="https://cdn.quasar.dev/img/parallax1.jpg"
+        :height="150"
+      />
+    </q-card>
     <div class="text-center q-pa-xl" style="height:700px">Klubben</div>
     <bottom-information></bottom-information>
   </q-page>
@@ -12,7 +17,7 @@ export default {
   components: {
     BottomInformation
   }
-}
+}// importerat bottominformationcomponenten
 </script>
 
 <style>

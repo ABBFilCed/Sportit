@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     onScroll () {
-      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 80) {
+      if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
         document.getElementById('toolbar').style.padding = '5px'
         document.getElementById('logo').style.height = '40px'
         document.getElementById('logo').style.width = '40px'
