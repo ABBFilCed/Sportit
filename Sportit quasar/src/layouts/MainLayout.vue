@@ -1,18 +1,18 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar style="height: 135px; background-color: dodgerblue">
-
+      <q-toolbar id="toolbar" style="background-color: dodgerblue; transition:0.8s;">
+        <q-scroll-observer @scroll="onScroll"/>
         <q-toolbar-title class="">
-          <router-link to="/" exact style="background-color:dodgerblue; margin-left:20px;"><q-img src="../images/sportit-logga-jenny-liten.png" style="height: 115px; max-width: 115px"></q-img></router-link>
-        </q-toolbar-title>
+          <router-link to="/" exact style="background-color:dodgerblue; margin-left:20px;"><q-img id="logo" src="../images/sportit-logga-jenny-liten.png" style="transition: 0.8s"></q-img></router-link>
+        </q-toolbar-title><!-- länk till main sidan med logga -->
 
         <div class=" text-right row q-gutter-md" style="list-style-type:none">
           <li class="col"><router-link to="/kontakt" exact>Kontakt</router-link></li>
           <li class="col"><router-link to="/anlaggningar" exact>Anläggningar</router-link></li>
           <li class="col"><router-link to="/klubben" exact>  Klubben</router-link></li>
           <li class="col"><router-link to="/login" exact>Logga in</router-link></li>
-        </div>
+        </div><!-- länkar till olika sidor -->
       </q-toolbar>
     </q-header>
 
@@ -28,8 +28,22 @@ export default {
   name: 'MainLayout',
   data () {
 
-  }
+  },
+  methods: {
+    onScroll () {
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 80) {
+        document.getElementById('toolbar').style.padding = '5px'
+        document.getElementById('logo').style.height = '35px'
+        document.getElementById('logo').style.width = '35px'
+      } else {
+        document.getElementById('toolbar').style.padding = '10px'
+        document.getElementById('logo').style.height = '130px'
+        document.getElementById('logo').style.width = '130px'
+      }
+    }
+  }// style="height: 115px; max-width: 115px"
 }
+
 </script>
 <style>
 li{
