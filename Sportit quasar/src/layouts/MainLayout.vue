@@ -4,14 +4,14 @@
       <q-toolbar style="height: 100px; background-color: dodgerblue">
 
         <q-toolbar-title class="col">
-          <router-link to="/">Sportit mc sport</router-link>
+          <router-link to="/" exact>Sportit mc sport</router-link>
         </q-toolbar-title>
 
         <div class="col text-center row" style="list-style-type:none">
-          <li class="col"><router-link to="/kontakt">Kontakt</router-link></li>
-          <li class="col"><router-link to="/anlaggningar">Anläggningar</router-link></li>
-          <li class="col"><router-link to="/klubben">För klubben</router-link></li>
-          <li class="col"><router-link to="/login">Logga in</router-link></li>
+          <li class="col"><router-link to="/kontakt" exact>Kontakt</router-link></li>
+          <li class="col"><router-link to="/anlaggningar" exact>Anläggningar</router-link></li>
+          <li class="col"><router-link to="/klubben" exact>För klubben</router-link></li>
+          <li class="col"><router-link to="/login" exact>Logga in</router-link></li>
         </div>
       </q-toolbar>
     </q-header>
