@@ -33,8 +33,8 @@ export default {
     onScroll () {
       if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 80) {
         document.getElementById('toolbar').style.padding = '5px'
-        document.getElementById('logo').style.height = '35px'
-        document.getElementById('logo').style.width = '35px'
+        document.getElementById('logo').style.height = '40px'
+        document.getElementById('logo').style.width = '40px'
       } else {
         document.getElementById('toolbar').style.padding = '10px'
         document.getElementById('logo').style.height = '130px'
