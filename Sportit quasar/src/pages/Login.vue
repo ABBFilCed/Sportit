@@ -4,9 +4,9 @@
   >
     <div class="column q-pa-lg">
       <div class="row">
-        <q-card square class="shadow-24" style="width:300px;height:485px;">
-          <q-card-section class="bg-deep-purple-7">
-            <h4 class="text-h5 text-white q-my-md">Bajs &amp; Macka</h4>
+        <q-card square class="shadow-24" style="width:450px;height:550px;">
+          <q-card-section class="bg-deep-purple-7 text-center">
+            <q-icon class="text-white q-my-md q-pa-sm round" name="person" style="font-size:5em; border-radius:100px;"/>
           </q-card-section>
           <q-card-section>
             <q-form class="q-px-sm q-pt-xl">
@@ -21,9 +21,6 @@
                 </template>
               </q-input>
             </q-form>
-            <q-card-actions class="q-px-lg">
-            <q-btn unelevated size="lg" color="purple-4" class="full-width text-white" label="Sign In" />
-          </q-card-actions>
           </q-card-section>
           <q-card-section>
             <div class="text-center q-pa-md q-gutter-md">
