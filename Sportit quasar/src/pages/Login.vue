@@ -22,7 +22,7 @@
               </q-input>
             </q-form>
             <q-card-actions class="q-px-lg">
-            <q-btn unelevated size="lg" color="purple-4" class="full-width text-white" label="Sign In" />
+            <q-btn unelevated size="lg" color="green" class="full-width text-white" label="Sign In" />
           </q-card-actions>
           </q-card-section>
           <q-card-section>
