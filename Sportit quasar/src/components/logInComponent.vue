@@ -45,7 +45,6 @@
         </q-card>
       </div>
     </div>
-    <bottom-information></bottom-information>
   </q-page>
 </template>
 
