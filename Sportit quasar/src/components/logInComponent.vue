@@ -1,13 +1,7 @@
 <template>
-<<<<<<< Updated upstream
-  <div>
-    <log-in-component/>
-    <bottom-information/>
-  </div>
-=======
-  <q-page
+    <q-page
     class="window-height row justify-center items-center"
-  >
+    >
     <div class="column q-pa-lg">
       <div class="row">
         <q-card square class="shadow-24" style="width:450px;height:550px;">
@@ -27,6 +21,13 @@
                 </template>
               </q-input>
             </q-form>
+            <q-card-actions class="q-px-lg">
+            <q-btn unelevated size="lg" class="full-width text-white bg-deep-purple-7" label="Sign In" />
+          </q-card-actions>
+          </q-card-section>
+          <q-card-section class="text-center q-pa-sm">
+            <p class="text-grey-6">Forgot your password?</p>
+            <p class="text-grey-6"> New here? Register</p>
           </q-card-section>
           <q-card-section>
             <div class="text-center q-pa-md q-gutter-md">
@@ -41,27 +42,23 @@
               </q-btn>
             </div>
           </q-card-section>
-          <q-card-section class="text-center q-pa-sm">
-            <p class="text-grey-6">Forgot your password?</p>
-          </q-card-section>
         </q-card>
       </div>
     </div>
     <bottom-information></bottom-information>
   </q-page>
->>>>>>> Stashed changes
 </template>
 
 <script>
-import BottomInformation from '../components/BottomInformation.vue'
-import logInComponent from '../components/logInComponent.vue'
 export default {
-  name: 'Login',
-  components: {
-    BottomInformation,
-    logInComponent
+  data () {
+    return {
+      email: '',
+      username: '',
+      password: ''
+    }
   }
-}// importerat bottominformationcomponenten
+}
 </script>
 
 <style>
