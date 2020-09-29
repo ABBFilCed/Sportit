@@ -27,6 +27,7 @@
           </q-card-section>
           <q-card-section class="text-center q-pa-sm">
             <p class="text-grey-6">Forgot your password?</p>
+            <p class="text-grey-6"> New here? Register</p>
           </q-card-section>
           <q-card-section>
             <div class="text-center q-pa-md q-gutter-md">
