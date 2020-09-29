@@ -1,7 +1,7 @@
 <template>
-    <q-page
-    class="window-height row justify-center items-center"
-    >
+  <q-page
+  class="window-height row justify-center items-center"
+  >
     <div class="column q-pa-lg">
       <div class="row">
         <q-card square class="shadow-24" style="width:450px;height:550px;">
@@ -30,7 +30,7 @@
             <p class="text-grey-6"> New here? Register</p>
           </q-card-section>
           <q-card-section>
-            <div class="text-center q-pa-md q-gutter-md">
+            <div class="text-center q-pa-md q-gutter-md" style="margin-top:-50px">
               <q-btn round color="indigo-7">
                 <q-icon name="fab fa-facebook-f" size="1.2rem" />
               </q-btn>
@@ -45,7 +45,6 @@
         </q-card>
       </div>
     </div>
-    <bottom-information></bottom-information>
   </q-page>
 </template>
 
