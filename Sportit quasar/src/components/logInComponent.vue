@@ -15,7 +15,7 @@
                   <q-icon name="email" />
                 </template>
               </q-input>
-              <q-input square clearable v-model="password" type="password" label="Password">
+              <q-input square clearable v-model="password" type="password" label="password">
                 <template v-slot:prepend>
                   <q-icon name="lock" />
                 </template>
@@ -53,7 +53,6 @@ export default {
   data () {
     return {
       email: '',
-      username: '',
       password: ''
     }
   }
