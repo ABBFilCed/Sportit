@@ -4,28 +4,28 @@
         <q-parallax
           src="https://www.unisport.com/sites/default/files/styles/teaser/public/2019-04/unisport-padel1.jpg?itok=AkKu_7-R"
           :height="300">
-          <q-btn-group>
-            <q-select style="width: 200px" standout v-model="model" :options="options" label="Väljd Sport" bg-color="white"></q-select>
+          <div class="row q-gutter-sm items-center">
+            <q-select class="col " style="width: 200px" standout v-model="model" :options="options" label="Vald Sport" bg-color="white"></q-select>
 
-                <q-input filled v-model="date" mask="date" :rules="['date']" bg-color="white">
-                  <template v-slot:append>
-                    <q-icon name="event" class="cursor-pointer">
-                      <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
-                        <q-date v-model="date">
-                          <div class="row items-center justify-end">
-                            <q-btn v-close-popup label="Close" color="primary" flat></q-btn>
-                          </div>
-                        </q-date>
-                      </q-popup-proxy>
-                    </q-icon>
-                  </template>
-                </q-input>
+            <q-input class="col " filled v-model="date" mask="date" :rules="['date']" bg-color="white" style="margin-top:28px">
+              <template v-slot:append>
+                <q-icon name="event" class="cursor-pointer">
+                  <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
+                    <q-date v-model="date">
+                      <div class="row items-center justify-end">
+                        <q-btn v-close-popup label="Close" color="primary" flat></q-btn>
+                      </div>
+                    </q-date>
+                  </q-popup-proxy>
+                </q-icon>
+              </template>
+            </q-input>
 
-            <q-input outlined v-model="text" label="Sök Stad" bg-color="white"></q-input>
+            <q-input class="col" outlined v-model="text" label="Sök Stad" bg-color="white"></q-input>
 
-            <q-btn :loading="loading1" color="secondary" @click="simulateProgress(1)" label="SÖK!"></q-btn>
+            <q-btn class="col-2" :loading="loading1" color="secondary" @click="simulateProgress(1)" label="SÖK!" style="height:54px"></q-btn>
 
-          </q-btn-group>
+          </div>
         </q-parallax>
       </q-card>
 
