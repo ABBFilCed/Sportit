@@ -5,8 +5,8 @@
     <q-form class="column">
       <div class="row">
         <q-card square class="" style="width:450px;height:640px;">
-          <q-card-section class="text-center" style="background-color: dodgerblue; height:150px; color:white;">
-            <h3 style="">Registrera dig</h3>
+          <q-card-section class="text-center" style=" height:150px;">
+            <h4 style="">Registrera dig</h4>
             <q-btn type="reset" icon="arrow_back" flat round dense v-close-popup color="black" class="absolute-top-left q-ma-sm" />
           </q-card-section>
           <q-card-section>
@@ -16,10 +16,10 @@
               clearable
               v-model="email"
               type="email"
-              label="Email"
+              label="E-post"
               class="q-mt-md"
               lazy-rules
-              :rules="[ val => val && val.length > 0 || 'Skriv något']"
+              :rules="[ val => val && val.length > 0 || 'Skriv in din e-post']"
                >
                 <template v-slot:prepend>
                   <q-icon name="email" />
@@ -30,7 +30,7 @@
               clearable
               v-model="password"
               type="password"
-              label="password"
+              label="Lösenord"
               class="q-mt-md"
               lazy-rules
               :rules="passwordRules"
@@ -44,7 +44,7 @@
               clearable
               v-model="repassword"
               type="password"
-              label="confirm password"
+              label="Upprepa lösenord"
               lazy-rules
               :rules="confirmPasswordRules"
               >
@@ -54,10 +54,15 @@
               </q-input>
             </q-form>
             <div class="q-gutter-sm">
-              <q-toggle v-model="agreement" label="Jag godkänner Avtal och villkor" class="q-mt-md"/>
+              <q-toggle
+                v-model="disabled"
+                label="Jag godkänner avtal och vilkor"
+                color="primary"
+              />
             </div>
             <q-card-actions class="q-mt-lg">
               <q-btn
+              :disabled="disabled == 0"
               unelevated
               size="lg"
               class="full-width text-white q-mt-lg"
@@ -94,28 +99,16 @@ export default {
       email: '',
       repassword: '',
       password: '',
-      agreement: false,
+      disabled: 0,
       passwordRules: [
-        (value) => !!value || 'Please type password.',
-        (value) => (value && value.length >= 6) || 'minimum 6 characters'
+        (value) => !!value || 'Skriv ett lösenord',
+        (value) => (value && value.length >= 8) || 'Lösenordet behöver vara minst 8 tecken'
       ],
       confirmPasswordRules: [
-        (value) => !!value || 'type confirm password',
+        (value) => !!value || 'Upprepa lösenordet',
         (value) =>
-          value === this.password || 'The password confirmation does not match.'
+          value === this.password || 'Lösenorden matchar inte'
       ]
-    }
-  },
-  methods: {
-    onSubmit () {
-      if (this.agreement !== true) {
-        this.$q.notify({
-          color: 'red-5',
-          textColor: 'white',
-          icon: 'warning',
-          message: 'Acceptera vilkor för att skapa konto'
-        })
-      }
     }
   }
 }

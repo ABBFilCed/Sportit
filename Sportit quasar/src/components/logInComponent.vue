@@ -16,10 +16,10 @@
                clearable
                v-model="email"
                type="email"
-               label="Email"
+               label="E-post"
                class="q-mt-md"
                lazy-rules
-                :rules="[ val => val && val.length > 0 || 'Please type something']"
+                :rules="[ val => val && val.length > 0 || 'Skriv in din e-post']"
                >
                 <template v-slot:prepend>
                   <q-icon name="email" />
@@ -30,9 +30,9 @@
               clearable
               v-model="password"
               type="password"
-              label="password"
+              label="Lösenord"
               lazy-rules
-              :rules="[ val => val && val.length > 7 || 'Lösenordet måste vara minst 8 tecken']"
+              :rules="[ val => !!value || 'Skriv ditt lösenord']"
               >
                 <template v-slot:prepend>
                   <q-icon name="lock" />
