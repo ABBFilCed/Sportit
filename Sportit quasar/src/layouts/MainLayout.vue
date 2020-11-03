@@ -11,11 +11,15 @@
           <li class="col"><router-link to="/kontakt" exact>Kontakt</router-link></li>
           <li class="col"><router-link to="/anlaggningar" exact>Anläggningar</router-link></li>
           <li class="col"><router-link to="/klubben" exact>  Klubben</router-link></li>
-          <li class="col"><router-link to="/login" exact>Logga in</router-link></li>
+          <q-btn flat no-caps style="font-size: 20px; font-weight:bold; margin:0px 5px; margin-top: 5px" :ripple="false" label="Logga in" color="" @click="login = true" />
         </div><!-- länkar till olika sidor -->
       </q-toolbar>
     </q-header>
-
+    <div>
+      <q-dialog v-model="login">
+        <log-in-component/>
+      </q-dialog>
+    </div>
     <q-page-container>
       <router-view />
     </q-page-container>
@@ -23,11 +27,16 @@
 </template>
 
 <script>
-
+import logInComponent from '../components/logInComponent.vue'
 export default {
   name: 'MainLayout',
+  components: {
+    logInComponent
+  },
   data () {
-
+    return {
+      login: false
+    }
   },
   methods: {
     onScroll () {
