@@ -62,7 +62,7 @@
             </div>
             <q-card-actions class="q-mt-lg">
               <q-btn
-              :disabled="disabled == 0"
+              :disabled="disabled == false"
               unelevated
               size="lg"
               class="full-width text-white q-mt-lg"
@@ -99,7 +99,7 @@ export default {
       email: '',
       repassword: '',
       password: '',
-      disabled: 0,
+      disabled: false,
       passwordRules: [
         (value) => !!value || 'Skriv ett lösenord',
         (value) => (value && value.length >= 8) || 'Lösenordet behöver vara minst 8 tecken'

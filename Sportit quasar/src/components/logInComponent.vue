@@ -54,10 +54,16 @@
               color="#404040"
               label="Registrera dig"
               @click="register = true" />
+               <q-btn
+              size="md"
+              unelevated
+              no-ripple
+              text-color="grey-7"
+              class="q-mt-lg full-width"
+              bg-color="white"
+              label="Glömt lösenord?"
+              @click="forgotPassword = true" />
             </q-card-actions>
-          </q-card-section>
-          <q-card-section class="text-center q-pa-sm">
-            <p class="text-grey-6">Glömt lösenordet?</p>
           </q-card-section>
           <!-- <q-card-section>
             <div class="text-center q-pa-md q-gutter-md" style="margin-top:-50px">
@@ -78,20 +84,26 @@
     <q-dialog v-model="register" seamless>
       <registerComponent/>
     </q-dialog>
+    <q-dialog v-model="forgotPassword" seamless>
+      <forgotPasswordComponent/>
+    </q-dialog>
   </div>
 </template>
 
 <script>
 import registerComponent from '../components/registerComponent.vue'
+import forgotPasswordComponent from '../components/forgotPasswordComponent.vue'
 export default {
   components: {
-    registerComponent
+    registerComponent,
+    forgotPasswordComponent
   },
   data () {
     return {
       email: '',
       password: '',
-      register: false
+      register: false,
+      forgotPassword: false
     }
   }
 }
