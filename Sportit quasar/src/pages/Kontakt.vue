@@ -3,20 +3,21 @@
     <q-card class="my-card">
       <q-parallax
         src="https://cdn.quasar.dev/img/parallax1.jpg"
-        :height="150"
-      />
+        :height="300"
+      ><h1 class="text-center" style="color:white;">Kontakta oss</h1></q-parallax>
     </q-card>
-    <h1 class="text-center">Kontakta oss</h1>
-    <div style="background-color:dodgerblue; color:white; width:100%;">
+    <div style="width:100%;">
       <div class="q-ma-xl q-pa-xl text-center">
         <p>{{info.info1}}</p><br><br>
         <p>Email: {{info.email}}</p><br>
         <p>Address: {{info.address}}</p>
       </div>
     </div>
-    <h1 class="text-center">Vi på Sportit</h1>
-    <contact-cards/>
-    <div style="background-color:dodgerblue; color:white; width:100%;">
+    <div style="background-color:dodgerblue; color:white; width:100%" class="q-pa-lg">
+      <h1 class="text-center">Vi på Sportit</h1>
+      <contact-cards/>
+    </div>
+    <div style="width:100%;">
       <div class="q-mx-xl q-pa-xl text-center">
         <p>{{info.info2}}</p><br><br>
       </div>

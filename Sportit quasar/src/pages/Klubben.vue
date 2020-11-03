@@ -3,11 +3,9 @@
     <q-card class="my-card">
       <q-parallax
         src="https://cdn.quasar.dev/img/parallax1.jpg"
-        :height="150"
-      />
+        :height="300"
+      ><h1 class="text-center" style="margin-top:-20; color:white;">För klubben</h1></q-parallax>
     </q-card>
-    <h1 class="text-center" style="margin-top:-20;">För klubben</h1>
-    <hr style="width:85%;"/>
     <div class="q-mx-xl q-pa-xl text-center">
       <h3>Bli medlemmar i SportIT</h3>
       <p class="text">{{lorem}}</p><br><br>
