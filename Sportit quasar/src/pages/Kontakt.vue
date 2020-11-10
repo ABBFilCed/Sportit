@@ -13,10 +13,7 @@
         <p>Address: {{info.address}}</p>
       </div>
     </div>
-    <div style="background-color:dodgerblue; color:white; width:100%" class="q-pa-lg">
-      <h1 class="text-center">Vi på Sportit</h1>
       <contact-cards/>
-    </div>
     <div style="width:100%;">
       <div class="q-mx-xl q-pa-xl text-center">
         <p>{{info.info2}}</p><br><br>
