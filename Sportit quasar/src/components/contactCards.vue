@@ -39,7 +39,7 @@ export default {
     isElemVisible (el) {
       var rect = el.getBoundingClientRect()
       var elemTop = rect.top + 200 // 200 = buffer
-      var elemBottom = rect.bottom + 200
+      var elemBottom = rect.bottom - 200
       return elemTop < window.innerHeight && elemBottom >= 0
     },
     handleScroll (evt) {
