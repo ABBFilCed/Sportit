@@ -26,9 +26,6 @@
 
 export default {
   name: 'MainLayout',
-  data () {
-
-  },
   methods: {
     onScroll () {
       if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {

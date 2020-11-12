@@ -8,14 +8,14 @@ export default ({ Vue }) => {
   Vue.use(firestorePlugin)
 
   var firebaseConfig = {
-    apiKey: 'AIzaSyDaeMNhYL8rfZCbu4EAAaZasneXFS4zobs',
-    authDomain: 'sportit-testing.firebaseapp.com',
-    databaseURL: 'https://sportit-testing.firebaseio.com',
-    projectId: 'sportit-testing',
-    storageBucket: 'sportit-testing.appspot.com',
-    messagingSenderId: '11727358313',
-    appId: '1:11727358313:web:314f5f72f28872f06595f8',
-    measurementId: 'G-8BQH83WPJC'
+    apiKey: 'AIzaSyDFOYDTny6ZibNYyTqaw5Zs3a7penBaVD8',
+    authDomain: 'testsportit-315ad.firebaseapp.com',
+    databaseURL: 'https://testsportit-315ad.firebaseio.com',
+    projectId: 'testsportit-315ad',
+    storageBucket: 'testsportit-315ad.appspot.com',
+    messagingSenderId: '972715959524',
+    appId: '1:972715959524:web:ed4f21ec89d5547ba678f1',
+    measurementId: 'G-R0KD9YX88X'
   }
 
   firebase.initializeApp(firebaseConfig)

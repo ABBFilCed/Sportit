@@ -1,53 +1,49 @@
 <template>
-  <q-page class="">
-      <q-parallax>
-        <template v-slot:media>
-          <img src="https://cdn.quasar.dev/img/parallax2.jpg">
-        </template>
+    <div class="row q-gutter-sm items-center">
+    <q-select class="col " style="width: 200px" standout v-model="model" :options="options" label="Vald Sport" bg-color="white"></q-select>
 
-        <template v-slot:content="scope">
-          <div
-            class="absolute column items-center"
-            :style="{
-              opacity: 0.60 + (1 - scope.percentScrolled) * 0.55,
-              top: (scope.percentScrolled * 60) + '%',
-              left: 0,
-              right: 0
-            }"
-          >
-            <search-bar/>
-          </div>
+    <q-btn color="white" text-color="black" label="Standard" @click="getAktiviteter()"/>
+
+    <q-input class="col " filled v-model="date" mask="date" :rules="['date']" bg-color="white" style="margin-top:28px">
+        <template v-slot:append>
+        <q-icon name="event" class="cursor-pointer">
+            <q-popup-proxy ref="qDateProxy" transition-show="scale" transition-hide="scale">
+            <q-date v-model="date">
+                <div class="row items-center justify-end">
+                <q-btn v-close-popup label="Close" color="primary" flat></q-btn>
+                </div>
+            </q-date>
+            </q-popup-proxy>
+        </q-icon>
         </template>
-      </q-parallax>
-    <p class=" q-ml-xl q-mr-xl q-pa-xl">{{info.info1}}</p>
-    <bottom-information></bottom-information>
-  </q-page>
+    </q-input>
+
+    <q-input class="col" outlined v-model="model" label="Sök Stad" bg-color="white"></q-input>
+
+    <q-btn class="col-2" :loading="loading1" color="secondary" @click="simulateProgress(1)" label="SÖK!" style="height:54px"></q-btn>
+    </div>
 </template>
 
 <script>
-import BottomInformation from '../components/BottomInformation.vue'
-import searchBar from '../components/searchBar.vue'
 import { db } from '../boot/firebase.js'
 
 export default {
-  name: 'PageIndex',
-  components: {
-    BottomInformation,
-    searchBar
-  },
-  methods: {
-    simulateProgress (number) {
-      // we set loading state
-      this[`loading${number}`] = true
-      // simulate a delay
-      setTimeout(() => {
-        // we're done, we reset loading state
-        this[`loading${number}`] = false
-      }, 3000)
+  computed: {
+    // a computed getter
+    getAktiviteter () {
+      // `this` points to the vm instance
+      const returnAktiviteter = []
+      const arrayAktiviti = this.aktiv
+      for (const sport in arrayAktiviti) {
+        console.log(sport)
+      }
+      return returnAktiviteter
     }
   },
+
   data () {
     return {
+      aktiv: [],
       loading1: false,
       date: '2019/02/01',
       model: null,
@@ -62,5 +58,9 @@ export default {
   firestore: {
     aktiv: db.collection('sporter')
   }
-}// importerat bottominformationcomponenten
+}
 </script>
+
+<style>
+
+</style>
