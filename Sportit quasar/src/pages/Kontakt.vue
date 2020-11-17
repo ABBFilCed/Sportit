@@ -7,15 +7,17 @@
       ><h1 class="text-center" style="color:white;">Kontakta oss</h1></q-parallax>
     </q-card>
     <div style="width:100%;">
-      <div class="q-ma-xl q-pa-xl text-center">
-        <p>{{info.info1}}</p><br><br>
-        <p>Email: {{info.email}}</p><br>
-        <p>Address: {{info.address}}</p>
+      <div class="q-ma-xl q-pa-xl text-center info col">
+        <p style="margin-bottom:100px">{{info.info1}}</p>
+        <div class=" row q-pa-xl" style="width:100%; background-color:gainsboro;border-radius: 20px;">
+          <p class="col">Email: {{info.email}}</p>
+          <p class="col">Address: {{info.address}}</p>
+        </div>
+        <p style="margin-top:100px">{{info.info1}}</p>
       </div>
     </div>
-      <contact-cards/>
     <div style="width:100%;">
-      <div class="q-mx-xl q-pa-xl text-center">
+      <div class="q-mx-xl q-pa-xl text-center info">
         <p>{{info.info2}}</p><br><br>
       </div>
     </div>
@@ -25,11 +27,9 @@
 
 <script>
 import BottomInformation from '../components/BottomInformation.vue'
-import contactCards from '../components/contactCards.vue'
 export default {
   components: {
-    BottomInformation,
-    contactCards
+    BottomInformation
   },
   data () {
     return {
@@ -45,5 +45,7 @@ export default {
 </script>
 
 <style>
-
+  .info{
+    font-size: 20px;
+  }
 </style>

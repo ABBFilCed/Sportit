@@ -1,5 +1,5 @@
 <template>
-  <q-page>
+  <q-page >
     <q-card class="my-card">
       <q-parallax
         src="https://cdn.quasar.dev/img/parallax1.jpg"

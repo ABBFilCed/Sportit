@@ -1,25 +1,20 @@
 <template >
-  <q-parallax
-    src="https://cdn.quasar.dev/img/parallax1.jpg"
-    :height="700"
-  >
-    <div style="color:white" class="container">
-      <h1 class="fade-in text-center">Vi på SportIT</h1>
-        <div class="row q-ma-xl q-gutter-xl" >
-          <div v-for="member in members" :key=member.id class="col fade-in">
-            <q-img
-              style="max-height:300px; border-radius: 300px; max-width:300px;"
-              :src='member.image'
-            />
-            <h3>{{member.member}}</h3>
-            <p>{{member.job}}</p>
-            <p>Telefon: {{member.number}}</p>
-            <p>E-mail: {{member.email}}</p>
-            <p>{{member.description}}</p>
-          </div>
-        </div>
+  <div class="row q-ma-xl q-gutter-xl " >
+    <div v-for="member in members" :key=member.id class="col ">
+      <div class="row justify-center">
+        <q-img
+          style="max-height:200px; border-radius: 200px; max-width:200px;"
+          :src='member.image'
+        />
+      </div>
+      <div>
+        <h3>{{member.member}}</h3>
+        <p>{{member.job}}</p>
+        <p>Telefon: {{member.number}}</p>
+        <p>E-mail: {{member.email}}</p>
+        <p>{{member.description}}</p>
+      </div>
     </div>
-  </q-parallax>
 </template>
 
 <script>
