@@ -28,6 +28,13 @@ const routes = [
       { path: '', component: () => import('pages/Anlaggningar.vue') }
     ]
   },
+  {
+    path: '/admin',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/adminPage.vue') }
+    ]
+  },
   // importera alla routes
   // Always leave this as last one,
   // but you can also remove it
