@@ -1,12 +1,16 @@
 <template>
-  <div style="height:400px; width:200px; background-color:gray; border-style:solid">
-      vi är asbra padel kom spela jaa spela mmmmm
+  <div class="q-pa-md q-gutter-sm" style="min-height:50px; max-height:500px; max-width: 50%px;">
+    <q-editor v-model="info" min-height="5rem" />
   </div>
 </template>
 
 <script>
 export default {
-
+  data () {
+    return {
+      info: ''
+    }
+  }
 }
 </script>
 
