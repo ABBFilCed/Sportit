@@ -37,6 +37,9 @@
       <div style="">
         <info-component v-show="components[2].show" />
       </div>
+      <div style="">
+        <member-fee-component v-show="components[3].show" />
+      </div>
     </div>
   </q-page>
 </template>
@@ -45,11 +48,14 @@
 import calendarComponent from '../components/calendarComponent.vue'
 import openingHoursComponent from '../components/openingHoursComponent.vue'
 import infoComponent from '../components/infoComponent.vue'
+import memberFeeComponent from '../components/memberFeeComponent.vue'
+
 export default {
   components: {
     calendarComponent,
     openingHoursComponent,
-    infoComponent
+    infoComponent,
+    memberFeeComponent
   },
   data () {
     return {
@@ -58,7 +64,8 @@ export default {
       components: [
         { id: 1, label: ' calendar', icon: 'calendar_today', separator: true, show: false },
         { id: 2, label: ' openingHours', icon: 'access_time', separator: true, show: false },
-        { id: 3, label: ' info', icon: 'info', separator: true, show: false }
+        { id: 3, label: ' info', icon: 'info', separator: true, show: false },
+        { id: 4, label: ' memberFee', icon: 'attach_money', separator: true, show: false }
       ]
     }
   }

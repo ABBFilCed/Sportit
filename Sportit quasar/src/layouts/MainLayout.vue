@@ -8,10 +8,10 @@
         </q-toolbar-title><!-- länk till main sidan med logga -->
 
         <div class=" text-right row q-gutter-md" style="list-style-type:none">
-          <li class="col"><router-link to="/kontakt" exact>Kontakt</router-link></li>
-          <li class="col"><router-link to="/anlaggningar" exact>Anläggningar</router-link></li>
-          <li class="col"><router-link to="/klubben" exact>Klubben</router-link></li>
-          <li class="col"><router-link to="/admin" exact>Min sida</router-link></li>
+          <li class="col"><router-link class="router" to="/kontakt" exact>Kontakt</router-link></li>
+          <li class="col"><router-link class="router" to="/anlaggningar" exact>Anläggningar</router-link></li>
+          <li class="col"><router-link class="router" to="/klubben" exact>Klubben</router-link></li>
+          <li class="col"><router-link class="router" to="/admin" exact>Min sida</router-link></li>
           <q-btn flat no-caps style="font-size: 20px; font-weight:bold; margin:0px 5px; margin-top: 5px" :ripple="false" label="Logga in" color="" @click="login = true" />
         </div><!-- länkar till olika sidor -->
       </q-toolbar>
@@ -60,7 +60,7 @@ li{
   display:inline-block;
   margin: 0 10px;
 }
-a{
+.router{
   color:white;
   text-decoration: none;
   font-size: 20px;
