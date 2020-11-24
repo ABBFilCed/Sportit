@@ -3,15 +3,15 @@
     <q-header elevated>
       <q-toolbar id="toolbar" style="background-color: dodgerblue; transition:0.8s;">
         <q-scroll-observer @scroll="onScroll"/>
-        <q-toolbar-title class="">
-          <router-link to="/" exact style="background-color:dodgerblue; margin-left:20px;"><q-img id="logo" src="../images/sportit-logga-jenny-liten.png" style="transition: 0.8s"></q-img></router-link>
+        <q-toolbar-title  class="">
+          <router-link to="/" exact style="background-color:dodgerblue; margin-left:20px;"><q-img id="logo" src="../images/sportit-logga-jenny-liten.png" width="40px" height="40px" style="transition: 0.8s"></q-img></router-link>
         </q-toolbar-title><!-- länk till main sidan med logga -->
 
-        <div class=" text-right row q-gutter-md" style="list-style-type:none">
+        <div class="justify-end" style="list-style-type:none">
           <li class="col"><router-link to="/kontakt" exact>Kontakt</router-link></li>
           <li class="col"><router-link to="/anlaggningar" exact>Anläggningar</router-link></li>
           <li class="col"><router-link to="/klubben" exact>  Klubben</router-link></li>
-          <q-btn flat no-caps style="font-size: 20px; font-weight:bold; margin:0px 5px; margin-top: 5px" :ripple="false" label="Logga in" color="" @click="login = true" />
+          <q-btn flat no-caps style="font-size: 20px; font-weight:bold; margin:0px 5px;  margin-bottom: 8px;" :ripple="false" class="col" label="Logga in" color="" @click="login = true" />
         </div><!-- länkar till olika sidor -->
       </q-toolbar>
     </q-header>
@@ -42,12 +42,12 @@ export default {
     onScroll () {
       if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
         document.getElementById('toolbar').style.padding = '5px'
-        document.getElementById('logo').style.height = '40px'
-        document.getElementById('logo').style.width = '40px'
+        document.getElementById('logo').style.height = '50px'
+        document.getElementById('logo').style.width = '50px'
       } else {
         document.getElementById('toolbar').style.padding = '10px'
-        document.getElementById('logo').style.height = '130px'
-        document.getElementById('logo').style.width = '130px'
+        document.getElementById('logo').style.height = '80px'
+        document.getElementById('logo').style.width = '80px'
       }
     }
   }// style="height: 115px; max-width: 115px"
