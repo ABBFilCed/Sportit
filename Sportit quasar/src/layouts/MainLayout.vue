@@ -1,17 +1,17 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar id="toolbar" style="background-color: dodgerblue; transition:0.8s;">
+      <q-toolbar id="toolbar" style="background-color:dodgerblue; transition:0.8s;">
         <q-scroll-observer @scroll="onScroll"/>
         <q-toolbar-title  class="">
-          <router-link to="/" exact style="background-color:dodgerblue; margin-left:20px;"><q-img id="logo" src="../images/sportit-logga-jenny-liten.png" width="40px" height="40px" style="transition: 0.8s"></q-img></router-link>
+          <router-link to="/" exact style="background-color:dodgerblue; margin-left:15px;"><q-img id="logo" src="../images/logo.jpg" width="40px" height="40px" style="transition: 0.8s"></q-img></router-link>
         </q-toolbar-title><!-- länk till main sidan med logga -->
 
         <div class="justify-end" style="list-style-type:none">
-          <li class="col"><router-link to="/kontakt" exact>Kontakt</router-link></li>
-          <li class="col"><router-link to="/anlaggningar" exact>Anläggningar</router-link></li>
-          <li class="col"><router-link to="/klubben" exact>  Klubben</router-link></li>
-          <q-btn flat no-caps style="font-size: 20px; font-weight:bold; margin:0px 5px;  margin-bottom: 8px;" :ripple="false" class="col" label="Logga in" color="" @click="login = true" />
+          <li class="col"><router-link to="/kontakt" exact>KONTAKT</router-link></li>
+          <li class="col"><router-link to="/anlaggningar" exact>ANLÄGGNINGAR</router-link></li>
+          <li class="col"><router-link to="/klubben" exact>  KLUBBEN</router-link></li>
+          <q-btn flat no-caps style="font-size: 15px; font-weight:bold; margin:0px 5px;  margin-bottom: 5px;" :ripple="false" class="col" label="LOGGA IN" color="" @click="login = true" />
         </div><!-- länkar till olika sidor -->
       </q-toolbar>
     </q-header>
@@ -58,18 +58,19 @@ export default {
 li{
   display:inline-block;
   margin: 0 10px;
+
 }
 a{
   color:white;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 15px;
   padding: 6px 8px;
   border-radius:10px;
   font-weight:bold;
 
 }
 .router-link-active{
-  background: white;
-  color:dodgerblue
+  background: rgb(27, 120, 255);
+  color:white;
 }
 </style>
