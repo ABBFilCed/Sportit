@@ -15,7 +15,7 @@
               right: 0
             }"
           >
-            <search-bar/>
+            <q-btn class="col-2" :loading="loading1" color="secondary" label="SÖK!" style="height:54px" @click="routingButton"></q-btn>
           </div>
         </template>
       </q-parallax>
@@ -38,7 +38,6 @@
 
 <script>
 import BottomInformation from '../components/BottomInformation.vue'
-import searchBar from '../components/searchBar.vue'
 import contactCards from '../components/contactCards.vue'
 import { db } from '../boot/firebase.js'
 
@@ -46,7 +45,6 @@ export default {
   name: 'PageIndex',
   components: {
     BottomInformation,
-    searchBar,
     contactCards
   },
   methods: {
@@ -95,6 +93,9 @@ export default {
           element.style.transitiondelay = '0.5s'
         }
       }
+    },
+    routingButton () {
+      this.$router.push('/boka')
     },
     handlescrollsubtitle (evt) {
       for (var i = 0; i < this.fadeInSubTitle.length; i++) {

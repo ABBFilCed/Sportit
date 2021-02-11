@@ -35,6 +35,13 @@ const routes = [
       { path: '', component: () => import('pages/Anlaggningar.vue') }
     ]
   },
+  {
+    path: '/boka',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', component: () => import('pages/Boka.vue') }
+    ]
+  },
   // importera alla routes
   // Always leave this as last one,
   // but you can also remove it

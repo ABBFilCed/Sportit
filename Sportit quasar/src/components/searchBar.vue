@@ -1,8 +1,6 @@
 <template>
     <div class="row q-gutter-sm items-center">
-    <q-select class="col " style="width: 200px" standout v-model="model" :options="options" label="Vald Sport" bg-color="white"></q-select>
-
-    <q-btn color="white" text-color="black" label="Standard" @click="getAktiviteter()"/>
+    <q-select class="col " style="width: 200px" standout v-model="model" :options="aktiv" option-value="id" option-label="sport" label="Vald Sport" bg-color="white"></q-select>
 
     <q-input class="col " filled v-model="date" mask="date" :rules="['date']" bg-color="white" style="margin-top:28px">
         <template v-slot:append>
@@ -17,36 +15,58 @@
         </q-icon>
         </template>
     </q-input>
+      <q-select
+        filled
+        v-model="searchInput"
+        clearable
+        use-input
+        hide-selected
+        fill-input
+        input-debounce="300"
+        label="Focus after filtering"
+        :options="cities"
+        option-value="id"
+        option-label="city"
+      >
+        <template v-slot:no-option>
+          <q-item>
+            <q-item-section class="text-grey">
+              No results
+            </q-item-section>
+          </q-item>
+        </template>
+      </q-select>
 
-    <q-input class="col" outlined v-model="model" label="Sök Stad" bg-color="white"></q-input>
+    <q-input v-model="searcher" placeholder="searsh box" />
 
-    <q-btn class="col-2" :loading="loading1" color="secondary" @click="simulateProgress(1)" label="SÖK!" style="height:54px"></q-btn>
+    <q-btn class="col-2" :loading="loading1" color="secondary" label="SÖK!" style="height:54px" @click="sendValues"></q-btn>
+
+    <searchResult :result="aktiv"></searchResult>
+
     </div>
 </template>
 
 <script>
 import { db } from '../boot/firebase.js'
+import searchResult from '../components/searchResult.vue'
 
 export default {
-  computed: {
-    // a computed getter
-    getAktiviteter () {
-      // `this` points to the vm instance
-      const returnAktiviteter = []
-      const arrayAktiviti = this.aktiv
-      for (const sport in arrayAktiviti) {
-        console.log(sport)
-      }
-      return returnAktiviteter
-    }
-  },
-
   data () {
     return {
+      stader: [],
       aktiv: [],
+      finalSulution: [],
+      search: '',
+      cities: [],
+      searcher: '',
+
       loading1: false,
+      test: [{ sport: 'boll', id: 'dsdsd' }, {
+        sport: 'tennis', id: 'dasaa'
+      }],
       date: '2019/02/01',
       model: null,
+      searchInput: null,
       options: [
         'Tennis', 'Gold', 'Prinskorv', 'Penis', 'KastMedLitenApa'
       ],
@@ -56,7 +76,34 @@ export default {
     }
   },
   firestore: {
-    aktiv: db.collection('sporter')
+    aktiv: db.collection('sporter'),
+    cities: db.collection('cities'),
+    finalSulution: db.collection('test')
+  },
+  components: {
+    searchResult
+  },
+
+  methods: {
+    sendValues () {
+      console.log(this.aktiv)
+      console.log(this.finalSulution)
+      console.log('skickar värden')
+    }
+  },
+  computed: {
+    drawerState: {
+      get () {
+        return this.$store.state.showcase.drawerState
+      },
+      set (val) {
+        this.$store.commit('showcase/updateDrawerState', val)
+      }
+    },
+    filterSearch: function () {
+      console.log('hejejejeheheheh')
+      return ('hej')
+    }
   }
 }
 </script>
