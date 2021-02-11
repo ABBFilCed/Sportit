@@ -1,18 +1,21 @@
 <template>
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
-      <q-toolbar id="toolbar" style="background-color:dodgerblue; transition:0.8s;">
-        <q-scroll-observer @scroll="onScroll"/>
-        <q-toolbar-title  class="">
-          <router-link to="/" exact style="background-color:dodgerblue; margin-left:15px;"><q-img id="logo" src="../images/logo.jpg" width="40px" height="40px" style="transition: 0.8s"></q-img></router-link>
-        </q-toolbar-title><!-- länk till main sidan med logga -->
+      <q-toolbar id="toolbar" class="row" style="padding:10px; background-color:dodgerblue;">
+        <!-- <q-scroll-observer @scroll="onScroll"/> -->
+        <div class="row justify-end">
+          <q-toolbar-title  class="col">
+            <!-- <router-link to="/" exact style="background-color:dodgerblue; margin-left:15px; margin-top:15px; margin-bottom:15px;"><q-img id="logo" src="../images/logo.jpg" width="50px" height="50px"></q-img></router-link> -->
+          </q-toolbar-title><!-- länk till main sidan med logga -->
 
-        <div class="justify-end" style="list-style-type:none">
-          <li class="col"><router-link to="/kontakt" exact>KONTAKT</router-link></li>
-          <li class="col"><router-link to="/anlaggningar" exact>ANLÄGGNINGAR</router-link></li>
-          <li class="col"><router-link to="/klubben" exact>  KLUBBEN</router-link></li>
-          <q-btn flat no-caps style="font-size: 15px; font-weight:bold; margin:0px 5px;  margin-bottom: 5px;" :ripple="false" class="col" label="LOGGA IN" color="" @click="login = true" />
-        </div><!-- länkar till olika sidor -->
+          <div class=" justify-end" style="list-style-type:none">
+            <li class="col-xs-2 col"><router-link to="/" exact style="background-color:dodgerblue; margin-top:15px; margin-bottom:15px;"><q-img id="logo" src="../images/logo.jpg" width="50px" height="50px"></q-img></router-link></li>
+            <li class="col-xs-2 col"><router-link to="/kontakt" exact>KONTAKT</router-link></li>
+            <li class="col-xs-2 col"><router-link to="/klubben" exact>KLUBBEN</router-link></li>
+            <li class="col-xs-2 col"><router-link to="/anlaggningar" exact> ANLÄGGNINGAR </router-link></li>
+            <q-btn flat no-caps style="font-size: 15px; font-weight:bold; margin:0px 5px;  margin-bottom: 5px;" :ripple="false" class="col-xs-2 col" label="LOGGA IN" color="" @click="login = true" />
+          </div><!-- länkar till olika sidor -->
+        </div>
       </q-toolbar>
     </q-header>
     <div>
