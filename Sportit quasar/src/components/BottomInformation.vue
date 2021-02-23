@@ -7,7 +7,9 @@
       <q-btn flat round size="xl" type="a" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" icon="ion-logo-snapchat"/>
     </div><!--länkar till sociala medier-->
     <div class="col text-center q-pt-md" style="color:white">
-        {{info.info1}}
+        <q-btn flat style="font-size: 15px; margin:0px 0px;  margin-bottom: 0px;" type="a" label="Användarvillkor" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" /><br>
+        <q-btn flat style="font-size: 15px; margin:0px 0px;  margin-bottom: 0px;" type="a" label="Om oss" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"/><br>
+        <q-btn flat style=" size: xs; font-size: 15px; margin:0px 0px;  margin-bottom: 0px;" type="a" label="Cookies" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"/><br>
     </div>
   </div>
 </template>
