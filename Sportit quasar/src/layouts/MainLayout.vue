@@ -12,7 +12,7 @@
             <li class="col-xs-2 col"><router-link to="/kontakt" exact>KONTAKT</router-link></li>
             <li class="col-xs-2 col"><router-link to="/klubben" exact>KLUBBEN</router-link></li>
             <li class="col-xs-2 col"><router-link to="/anlaggningar" exact> ANLÄGGNINGAR </router-link></li>
-            <li class="col-xs-2 col"><q-btn flat no-caps style="font-size: 15px; font-weight:bold; margin-bottom: 2px; " :ripple="false" label="LOGGA IN" color="" @click="login = true" /></li>
+            <li class="col-xs-2 col"><q-btn v-show="isAuthenticated" flat no-caps style="font-size: 15px; font-weight:bold; margin-bottom: 2px; " :ripple="false" label="LOGGA UT" color="" @click="logout" /><q-btn v-show="!isAuthenticated" flat no-caps style="font-size: 15px; font-weight:bold; margin-bottom: 2px; " :ripple="false" label="LOGGA IN" color="" @click="login = true" /></li>
           </div><!-- länkar till olika sidor -->
       </q-toolbar>
     </q-header>
@@ -29,6 +29,7 @@
 
 <script>
 import logInComponent from '../components/logInComponent.vue'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'MainLayout',
   components: {
@@ -38,6 +39,10 @@ export default {
     return {
       login: false
     }
+  },
+  computed: {
+    ...mapGetters('auth', ['isAuthenticated']),
+    ...mapGetters('user', ['currentUser'])
   },
   methods: {
     onScroll () {
@@ -50,6 +55,13 @@ export default {
         document.getElementById('logo').style.height = '80px'
         document.getElementById('logo').style.width = '80px'
       }
+    },
+    ...mapActions('auth', ['logoutUser']),
+    ...mapActions('user', ['updateUserData']),
+    logout: function () {
+      console.log('testar testar testar')
+      this.logoutUser()
+      location.href = '/#/'
     }
   }// style="height: 115px; max-width: 115px"
 }
