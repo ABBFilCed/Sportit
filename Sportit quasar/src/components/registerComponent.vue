@@ -2,7 +2,7 @@
   <div
   class="row justify-center items-center"
   >
-    <q-form class="column">
+    <q-form @submit="register" class="column">
       <div class="row">
         <q-card square class="" style="width:450px;height:640px;">
           <q-card-section class="text-center" style=" height:150px;">
@@ -92,6 +92,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex'
+import { db } from '../boot/firebase'
 export default {
   name: 'Login',
   data () {
@@ -109,6 +111,33 @@ export default {
         (value) =>
           value === this.password || 'Lösenorden matchar inte'
       ]
+    }
+  },
+  computed: {
+    ...mapGetters('auth', ['isAuthenticated']),
+    ...mapGetters('user', ['currentUser'])
+  },
+  methods: {
+    ...mapActions('auth', ['createNewUser']),
+    register () {
+      const user = { email: this.email, password: this.password, firstName: '', lastName: '' }
+      console.log(user)
+      console.log('bruh vi skappar ett konto')
+      this.createNewUser(user)
+        .then(u => {
+          db.collection('users').doc(this.currentUser.id).set({
+            qrUrl: 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + this.currentUser.id
+          }, { merge: true })
+          this.$router.push('/kontakt')
+        })
+        .catch(async (error) => {
+          console.log(error)
+        })
+    }
+  },
+  beforeCreate () {
+    if (this.isAuthenticated) {
+      location.href = '/#/'
     }
   }
 }

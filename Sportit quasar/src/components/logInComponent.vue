@@ -116,7 +116,7 @@ export default {
       const user = { email: this.email, password: this.password }
       this.loginUser(user)
         .then(u => {
-          this.$router.push('/')
+          // this.$router.push('/')
           console.log(u)
         })
         .catch(async (error) => {
