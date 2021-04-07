@@ -26,13 +26,13 @@
                 </template>
               </q-input>
               <q-input
-              square
-              clearable
-              v-model="password"
-              type="password"
-              label="Lösenord"
-              lazy-rules
-              :rules="[ val => !!value || 'Skriv ditt lösenord']"
+                square
+                clearable
+                v-model="password"
+                type="password"
+                label="Lösenord"
+                lazy-rules
+                  :rules="[ val => !!val || 'Skriv ditt lösenord']"
               >
                 <template v-slot:prepend>
                   <q-icon name="lock" />
@@ -46,7 +46,7 @@
               class="full-width text-white q-mt-lg"
               style="background-color:#404040;"
               label="Logga in"
-              type="submit" />
+              @click="login" />
               <q-btn
               size="lg"
               class="full-width q-mt-lg"
@@ -93,17 +93,41 @@
 <script>
 import registerComponent from '../components/registerComponent.vue'
 import forgotPasswordComponent from '../components/forgotPasswordComponent.vue'
+import { mapActions, mapGetters } from 'vuex'
 export default {
-  components: {
-    registerComponent,
-    forgotPasswordComponent
-  },
   data () {
     return {
       email: '',
       password: '',
       register: false,
       forgotPassword: false
+    }
+  },
+  components: {
+    registerComponent,
+    forgotPasswordComponent
+  },
+  computed: {
+    ...mapGetters('auth', ['isAuthenticated'])
+  },
+  methods: {
+    ...mapActions('auth', ['loginUser']),
+    login () {
+      const user = { email: this.email, password: this.password }
+      this.loginUser(user)
+        .then(u => {
+          // this.$router.push('/')
+          console.log(u)
+        })
+        .catch(async (error) => {
+          console.log(error)
+        })
+    }
+  },
+  mounted () {
+    if (this.isAuthenticated) {
+      location.href = '/#/'
+      console.log('Du är nu inlloggade ')
     }
   }
 }
