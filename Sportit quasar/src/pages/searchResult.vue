@@ -1,11 +1,9 @@
 <template>
   <q-page>
-    <div class="row justify-center q-ma-xl">
-      <p>searchbar</p>
-    </div>
+    <search-bar/>
     <div class="row justify-center q-my-xl">
-      <div class="col-md-7 col-sm-12" style="border-left-style: solid; border-right-style: solid; border-width: 2px; border-color: gainsboro;">
-        <div v-for="club in clubs" :key=club.id class="row q-py-lg q-mx-xl" style="border-bottom-style: solid; border-width: 2px; border-color: gainsboro;">
+      <div class="col-md-7 col-sm-12" style="">
+        <div v-for="club in clubs" :key=club.id class="row q-pa-lg" style="border-bottom-style: solid; border-width: 2px; border-color: gainsboro;">
           <q-btn style="width:100%;" unelevated class="q-pa-sm">
             <q-img src="../images/sportit-logga-clean-liten.png" width="150px" height="150px" class="col-3"/>
             <div class="col q-pl-lg q-pt-lg">
@@ -21,10 +19,13 @@
 </template>
 
 <script>
+
 import BottomInformation from '../components/BottomInformation.vue'
+import searchBar from '../components/searchBar.vue'
 export default {
   components: {
-    BottomInformation
+    BottomInformation,
+    searchBar
   },
   data () {
     return {
