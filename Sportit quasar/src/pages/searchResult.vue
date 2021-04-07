@@ -1,13 +1,18 @@
 <template>
   <q-page>
-    <div style="margin-right: 25%; margin-left: 25%;">
-      resultat
-      <div v-for="club in clubs" :key=club.id class="col q-my-xl">
-        <div class="row">
-          <q-img src="../images/sportit-logga-clean-liten.png" class="col-2"/>
-          <div class="col-2">
-
-          </div>
+    <div class="row justify-center q-ma-xl">
+      <p>searchbar</p>
+    </div>
+    <div class="row justify-center q-my-xl">
+      <div class="col-md-7 col-sm-12" style="border-left-style: solid; border-right-style: solid; border-width: 2px; border-color: gainsboro;">
+        <div v-for="club in clubs" :key=club.id class="row q-py-lg q-mx-xl" style="border-bottom-style: solid; border-width: 2px; border-color: gainsboro;">
+          <q-btn style="width:100%;" unelevated class="q-pa-sm">
+            <q-img src="../images/sportit-logga-clean-liten.png" width="150px" height="150px" class="col-3"/>
+            <div class="col q-pl-lg q-pt-lg">
+              <p class="row" style="font-size: 30px;">{{club.name}}</p>
+              <p class="row">{{club.adress}}</p>
+            </div>
+          </q-btn>
         </div>
       </div>
     </div>
