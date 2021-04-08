@@ -1,5 +1,5 @@
 <template>
-  <div class="row justify-center q-pa-xl q-gutter-sm" >
+  <div class="row justify-center q-pa-xl q-gutter-sm window-width" >
     <q-input class="col-2" outlined bg-color="white" v-model="search" label="Hitta anläggning" />
     <q-select
       class="col-2"
