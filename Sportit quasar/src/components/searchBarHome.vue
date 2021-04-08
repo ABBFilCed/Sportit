@@ -22,7 +22,7 @@
       </template>
     </q-select>
     <q-select outlined bg-color="white" v-model="sportmodel" :options="sportoptions" label="Sport" class="col-2"/>
-    <q-btn color="primary" label="Sök!" class="col-1" unelevated/>
+    <q-btn color="primary" label="Sök!" class="col-1" unelevated @click ="changeShow"/>
   </div>
 </template>
 
@@ -33,6 +33,7 @@ const stringOptions = [
 export default {
   data () {
     return {
+      showResult: true,
       search: null,
       stadmodel: null,
       stringOptions,
@@ -56,6 +57,9 @@ export default {
         const needle = val.toLowerCase()
         this.stadoptions = stringOptions.filter(v => v.toLowerCase().indexOf(needle) > -1)
       })
+    },
+    changeShow () {
+      this.$emit('switchState', this.showResult)
     }
   }
 }

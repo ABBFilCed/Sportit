@@ -16,7 +16,7 @@
                 right: 0
               }"
             >
-              <search-bar-home/>
+              <search-bar-home @switchState = "changeShow($event)"/>
             </div>
           </template>
         </q-parallax>
@@ -52,6 +52,10 @@ export default {
     searchResult
   },
   methods: {
+    changeShow () {
+      this.showResult = true
+    },
+
     simulateProgress (number) {
       // we set loading state
       this[`loading${number}`] = true
