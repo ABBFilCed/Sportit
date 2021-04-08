@@ -1,36 +1,39 @@
 <template>
   <q-page class="">
-      <q-parallax class="window-height" speed="0.5">
-        <template v-slot:media>
-          <img src="https://cdn.quasar.dev/img/parallax2.jpg">
-        </template>
+    <div v-if = "showResult == false">
+        <q-parallax class="window-height" :speed="0.5">
+          <template v-slot:media>
+            <img src="https://cdn.quasar.dev/img/parallax2.jpg">
+          </template>
 
-        <template v-slot:content="scope">
-          <div
-            class="absolute column items-center"
-            :style="{
-              opacity: 0.80 + (1 - scope.percentScrolled) *0.55,
-              top: ((scope.percentScrolled * 75)-5) + '%',
-              left: 0,
-              right: 0
-            }"
-          >
-            <search-bar-home/>
-          </div>
-        </template>
-      </q-parallax>
-    <div>
-      <div class="q-mb-xl column" style="margin-left: 10%; margin-right:40%">
-        <h2 class="fade-in">{{info.title1}}</h2>
-        <h4 class="fade-in-subtitle">{{info.subtitle1}}</h4>
-        <p class="fade-in">{{info.info1}}</p>
-      </div>
-      <div style="margin-left: 40%; margin-right:10%; text-align:left;" class="q-mt-xl">
-        <h2 class="fade-in" style="margin-left:60%; width: 40%;">{{info.title1}}</h2>
-        <h4 class="fade-in-subtitle" style="margin-left:75%; width: 20%;">{{info.subtitle1}}</h4>
-        <p class="fade-in">{{info.info1}}</p>
+          <template v-slot:content="scope">
+            <div
+              class="absolute column items-center"
+              :style="{
+                opacity: 0.80 + (1 - scope.percentScrolled) *0.55,
+                top: ((scope.percentScrolled * 75)-5) + '%',
+                left: 0,
+                right: 0
+              }"
+            >
+              <search-bar-home/>
+            </div>
+          </template>
+        </q-parallax>
+      <div>
+        <div class="q-mb-xl column" style="margin-left: 10%; margin-right:40%">
+          <h2 class="fade-in">{{info.title1}}</h2>
+          <h4 class="fade-in-subtitle">{{info.subtitle1}}</h4>
+          <p class="fade-in">{{info.info1}}</p>
+        </div>
+        <div style="margin-left: 40%; margin-right:10%; text-align:left;" class="q-mt-xl">
+          <h2 class="fade-in" style="margin-left:60%; width: 40%;">{{info.title1}}</h2>
+          <h4 class="fade-in-subtitle" style="margin-left:75%; width: 20%;">{{info.subtitle1}}</h4>
+          <p class="fade-in">{{info.info1}}</p>
+        </div>
       </div>
     </div>
+    <search-result v-show="showResult" />
     <bottom-information></bottom-information>
   </q-page>
 </template>
@@ -38,13 +41,15 @@
 <script>
 import BottomInformation from '../components/BottomInformation.vue'
 import searchBarHome from '../components/searchBarHome.vue'
+import searchResult from './searchResult.vue'
 import { db } from '../boot/firebase.js'
 
 export default {
   name: 'PageIndex',
   components: {
     BottomInformation,
-    searchBarHome
+    searchBarHome,
+    searchResult
   },
   methods: {
     simulateProgress (number) {
@@ -131,6 +136,7 @@ export default {
   },
   data () {
     return {
+      showResult: false,
       loading1: false,
       date: '2019/02/01',
       model: null,
