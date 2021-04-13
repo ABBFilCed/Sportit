@@ -7,7 +7,7 @@
             <!-- <router-link to="/" exact style="background-color:dodgerblue; margin-left:15px; margin-top:15px; margin-bottom:15px;"><q-img id="logo" src="../images/logo.jpg" width="50px" height="50px"></q-img></router-link> -->
           <!-- </q-toolbar-title> -->
 
-          <div class="" style="list-style-type:none">
+          <div class="Helvetica" style="list-style-type:none">
             <li class="col-xs-2 col"><router-link to="/" exact style="background-color:dodgerblue; margin-top:15px; margin-bottom:15px;"><q-img id="logo" src="../images/logo.jpg" width="50px" height="50px"></q-img></router-link></li>
             <li class="col-xs-2 col"><router-link to="/kontakt" exact>KONTAKT</router-link></li>
             <li class="col-xs-2 col"><router-link to="/klubben" exact>KLUBBEN</router-link></li>
@@ -73,5 +73,9 @@ a{
 .router-link-active{
   background: rgb(27, 120, 255);
   color:white;
+}
+
+.Helvetica {
+  font-family: 'Trebuchet MS';
 }
 </style>
