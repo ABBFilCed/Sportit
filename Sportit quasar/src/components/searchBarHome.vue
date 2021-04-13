@@ -60,6 +60,9 @@ export default {
     },
     changeShow () {
       this.$emit('switchState', this.showResult)
+      const sendList = []
+      sendList.push(this.search, this.stadmodel, this.sportmodel)
+      this.$emit('sendData', sendList)
     }
   }
 }

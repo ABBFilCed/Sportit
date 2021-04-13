@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <search-bar/>
+    <search-bar @sendData = "recieveData($event)"/>
     <div class="row justify-center q-my-xl">
       <div class="col-md-7 col-sm-12" style="">
         <div v-for="club in clubs" :key=club.id class="row q-pa-lg" style="border-bottom-style: solid; border-width: 2px; border-color: gainsboro;">
@@ -27,13 +27,26 @@ export default {
     BottomInformation,
     searchBar
   },
+  props: ['searchResultHome'],
   data () {
     return {
+      searchData: [],
       clubs: [
         { id: 0, icon: 'fas fa-phone', name: 'Sura padel', adress: 'köpmangatan 45' },
         { id: 1, icon: 'fas fa-image', name: 'tennishallen', adress: 'kebbenikaise 7' },
         { id: 2, icon: 'fas fa-users', name: 'västerås bowlingmasters', adress: 'Åmänningevägen 21' }
       ]
+    }
+  },
+  methods: {
+    recieveData (e) {
+      this.searchData = e
+      console.log(this.searchData)
+    }
+  },
+  watch: {
+    searchResultHome: function () {
+      this.searchData = this.searchResultHome
     }
   }
 }// importerat bottominformationcomponenten

@@ -16,7 +16,7 @@
                 right: 0
               }"
             >
-              <search-bar-home @switchState = "changeShow($event)"/>
+              <search-bar-home @switchState = "changeShow($event)" @sendData = "recieveData($event)"/>
             </div>
           </template>
         </q-parallax>
@@ -33,7 +33,7 @@
         </div>
       </div>
     </div>
-    <search-result v-show="showResult" />
+    <search-result v-show="showResult" :searchResultHome = "searchData" />
     <bottom-information></bottom-information>
   </q-page>
 </template>
@@ -51,9 +51,25 @@ export default {
     searchBarHome,
     searchResult
   },
+  data () {
+    return {
+      searchData: [],
+      showResult: false,
+      loading1: false,
+      info: {
+        title1: 'Title of text',
+        subtitle1: 'Subtitle',
+        info1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
+      }
+    }
+  },
   methods: {
     changeShow () {
       this.showResult = true
+    },
+    recieveData (e) {
+      this.searchData = e
+      console.log(this.searchData)
     },
 
     simulateProgress (number) {
@@ -138,22 +154,7 @@ export default {
     document.removeEventListener('scroll', this.handlescrolltitle)
     document.removeEventListener('scroll', this.handlescrollsubtitle)
   },
-  data () {
-    return {
-      showResult: false,
-      loading1: false,
-      date: '2019/02/01',
-      model: null,
-      options: [
-        'Tennis', 'Gold', 'Prinskorv', 'Penis', 'KastMedLitenApa'
-      ],
-      info: {
-        title1: 'Title of text',
-        subtitle1: 'Subtitle',
-        info1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-      }
-    }
-  },
+
   firestore: {
     aktiv: db.collection('sporter')
   }

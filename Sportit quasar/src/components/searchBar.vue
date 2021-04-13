@@ -22,7 +22,7 @@
       </template>
     </q-select>
     <q-select outlined bg-color="white" v-model="sportmodel" :options="sportoptions" label="Sport" class="col-2"/>
-    <q-btn color="primary" label="Sök!" class="col-1" unelevated/>
+    <q-btn color="primary" label="Sök!" class="col-1" unelevated @click ="sendSearchData"/>
   </div>
 </template>
 
@@ -56,6 +56,11 @@ export default {
         const needle = val.toLowerCase()
         this.options = stringOptions.filter(v => v.toLowerCase().indexOf(needle) > -1)
       })
+    },
+    sendSearchData () {
+      const sendList = []
+      sendList.push(this.search, this.stadmodel, this.sportmodel)
+      this.$emit('sendData', sendList)
     }
   }
 }
