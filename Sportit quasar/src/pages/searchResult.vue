@@ -39,7 +39,8 @@ export default {
         { id: 2, icon: 'fas fa-users', name: 'västerås bowlingmasters', adress: 'Åmänningevägen 21' }
       ],
       hallar: [],
-      searchResult: []
+      searchResult: [],
+      filterResult: []
     }
   },
   methods: {
@@ -52,10 +53,24 @@ export default {
   watch: {
     searchResultHome: function () {
       this.searchData = this.searchResultHome
+    },
+    searchData: function () {
+      let search = db.collection('Hallar')
+
+      if (this.searchData[1] != null) {
+        search = search.where('sport', '==', this.searchData[1])
+      }
+
+      if (this.searchData[2] != null) {
+        search = search.where('stad', '==', this.searchData[2])
+      }
+
+      this.$bind('filterResult', search)
+      console.log(this.filterResult)
     }
   },
   firestore: {
-    hallar: db.collection('Hallar')
+    // hallar: db.collection('Hallar')
   }
 }// importerat bottominformationcomponenten
 </script>
