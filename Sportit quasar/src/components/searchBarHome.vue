@@ -61,7 +61,15 @@ export default {
     changeShow () {
       this.$emit('switchState', this.showResult)
       const sendList = []
-      sendList.push(this.search, this.stadmodel, this.sportmodel)
+
+      if (this.stadmodel) {
+        sendList.push({ name: 'stad', value: this.stadmodel })
+      }
+
+      if (this.sportmodel) {
+        sendList.push({ name: 'sport', value: this.sportmodel })
+      }
+
       this.$emit('sendData', sendList)
     }
   }

@@ -4,8 +4,8 @@
     <div class="row justify-center q-my-xl">
       <div class="col-md-7 col-sm-12" style="">
         <div
-          v-for="hall in searchResult"
-          :key="hall.id"
+          v-for="item in filterResult"
+          :key="item.id"
           class="row q-pa-lg"
           style="border-bottom-style: solid; border-width: 2px; border-color: gainsboro;"
         >
@@ -17,32 +17,22 @@
               class="col-3"
             />
             <div class="col q-pl-lg q-pt-lg">
-              <p class="row" style="font-size: 30px;">{{ hall.name }}</p>
-              <p class="row">{{ hall.adress }}</p>
+              <p class="row" style="font-size: 30px;">{{ item.name }}</p>
+              <p class="row">{{ item.adress }}</p>
             </div>
           </q-btn>
         </div>
       </div>
     </div>
-
-    <q-list bordered separator class="q-ma-md">
-      <q-item v-for="item in filterResult" :key="item.id" clickable v-ripple>
-        <q-item-section>{{item.name}} - {{item.sport}} - {{item.stad}}</q-item-section>
-      </q-item>
-    </q-list>
-
-    <bottom-information></bottom-information>
   </q-page>
 </template>
 
 <script>
-import BottomInformation from '../components/BottomInformation.vue'
 import searchBar from '../components/searchBar.vue'
 import { db } from '../boot/firebase.js'
 
 export default {
   components: {
-    BottomInformation,
     searchBar
   },
   props: ['searchResultHome'],
@@ -95,7 +85,23 @@ export default {
   },
   watch: {
     searchResultHome: function () {
-      this.searchData = this.searchResultHome
+      console.log(this.searchResultHome)
+      let search = db.collection('Hallar')
+      const data = this.searchResultHome
+
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].name === 'sport') {
+          search = search.where('sport', '==', data[i].value)
+        }
+
+        if (data[i].name === 'stad') {
+          search = search.where('stad', '==', data[i].value)
+        }
+      }
+
+      this.$bind('filterResult', search).then(res => {
+        console.log(res)
+      })
     }
     // searchData: function () {
     //   let search = db.collection('Hallar')
