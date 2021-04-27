@@ -60,6 +60,10 @@ export default {
     sendSearchData () {
       const sendList = []
 
+      if (this.search) {
+        sendList.push({ name: 'search', value: this.search })
+      }
+
       if (this.stadmodel) {
         sendList.push({ name: 'stad', value: this.stadmodel })
       }

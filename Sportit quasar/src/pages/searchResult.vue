@@ -61,14 +61,22 @@ export default {
       ],
       hallar: [],
       searchResult: [],
-      filterResult: []
+      filterResult: [],
+      dbVariables: ['adress', 'name', 'sport', 'stad']
     }
   },
   methods: {
     recieveData (data) {
       let search = db.collection('Hallar')
-
+      console.log(search)
       for (let i = 0; i < data.length; i++) {
+        if (data[i].name === 'search') {
+          search = search.where('name', '==', data[i].value)
+          // for (const a in this.dbVariables) {
+          //   console.log(this.dbVariables[a])
+          //   search = search.where(this.dbVariables[a], '==', data[i].value)
+          // } funkar inte
+        }
         if (data[i].name === 'sport') {
           search = search.where('sport', '==', data[i].value)
         }
@@ -90,6 +98,9 @@ export default {
       const data = this.searchResultHome
 
       for (let i = 0; i < data.length; i++) {
+        if (data[i].name === 'search') {
+          search = search.where('name', '==', data[i].value)
+        }
         if (data[i].name === 'sport') {
           search = search.where('sport', '==', data[i].value)
         }
