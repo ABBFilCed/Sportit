@@ -28,7 +28,7 @@
 
 <script>
 const stringOptions = [
-  'Västerås', 'surahammar', 'Södertälje', 'Sundsvall', 'Los Angeles'
+  'västerås', 'surahammar', 'södertälje', 'sundsvall', 'los angeles'
 ]
 export default {
   data () {
@@ -39,7 +39,7 @@ export default {
       stadoptions: stringOptions,
       sportmodel: null,
       sportoptions: [
-        'padel', 'Tennis', 'Pingis', 'Badminton'
+        'padel', 'tennis', 'pingis', 'badminton'
       ]
     }
   },
