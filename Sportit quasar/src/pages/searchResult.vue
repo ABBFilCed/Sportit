@@ -9,7 +9,7 @@
           class="row q-pa-lg"
           style="border-bottom-style: solid; border-width: 2px; border-color: gainsboro;"
         >
-          <q-btn style="width:100%;" unelevated class="q-pa-sm">
+          <q-btn @click="calendarFunction(item.name, item.openTime, item.closeTime, item.booked)" style="width:100%;" unelevated class="q-pa-sm">
             <q-img
               src="../images/sportit-logga-clean-liten.png"
               width="150px"
@@ -24,21 +24,28 @@
         </div>
       </div>
     </div>
+    <q-dialog v-model="showCalendar">
+        <calendar-component :dataToCalendar = "sendData"/>
+    </q-dialog>
   </q-page>
 </template>
 
 <script>
 import searchBar from '../components/searchBar.vue'
+import calendarComponent from '../components/calendarComponent.vue'
 import { db } from '../boot/firebase.js'
 
 export default {
   components: {
-    searchBar
+    searchBar,
+    calendarComponent
   },
   props: ['searchResultHome'],
   data () {
     return {
       searchData: [],
+      sendData: [],
+      showCalendar: false,
       clubs: [
         {
           id: 0,
@@ -68,7 +75,7 @@ export default {
   methods: {
     recieveData (data) {
       let search = db.collection('Hallar')
-      console.log(search)
+      // console.log(search)
       for (let i = 0; i < data.length; i++) {
         if (data[i].name === 'search') {
           search = search.where('name', '==', data[i].value)
@@ -87,13 +94,20 @@ export default {
       }
 
       this.$bind('filterResult', search).then(res => {
-        console.log(res)
+        // console.log(res)
       })
+    },
+    calendarFunction (name, openTime, closeTime, booked) {
+      this.showCalendar = true
+      // console.log(e)
+      const listNew = []
+      listNew.push(name, openTime, closeTime, booked)
+      this.sendData = listNew
     }
   },
   watch: {
     searchResultHome: function () {
-      console.log(this.searchResultHome)
+      // console.log(this.searchResultHome)
       let search = db.collection('Hallar')
       const data = this.searchResultHome
 
@@ -111,7 +125,7 @@ export default {
       }
 
       this.$bind('filterResult', search).then(res => {
-        console.log(res)
+        // console.log(res)
       })
     }
     // searchData: function () {
