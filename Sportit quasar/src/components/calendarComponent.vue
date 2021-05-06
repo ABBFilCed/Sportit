@@ -39,12 +39,23 @@ export default {
       const fakeList = []
       let i = this.dataToCalendar[1]
       console.log(i)
-
+      let a
       while (i < this.dataToCalendar[2]) {
         console.log(i)
         console.log('sadsadmasomd')
         i += 1
-        fakeList.push(i + ':00-' + (i + 1) + ':00')
+        const currentDate = (i + ':00-' + (i + 1) + ':00')
+        var currentDateString = currentDate.toString()
+        console.log(currentDate)
+        console.log(this.dataToCalendar[3])
+        for (a in this.dataToCalendar[3]) {
+          console.log('hejhejhje')
+          console.log(a)
+          if (this.dataToCalendar[3][a] !== currentDateString) {
+            console.log('funkadåe')
+            fakeList.push(currentDateString)
+          }
+        }
       }
       return fakeList
     },
