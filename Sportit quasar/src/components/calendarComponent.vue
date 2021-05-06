@@ -2,6 +2,8 @@
   <div>
       {{ dataToCalendar }}
       {{ timeMaker }}
+      {{ datemaker }}
+
   </div>
 </template>
 
@@ -23,20 +25,25 @@ export default {
       console.log(this.dataToCalendar)
       const fakeList = []
       let i = this.dataToCalendar[1]
-      const timeStamp = Date.now()
-      let formattedString = date.formatDate(timeStamp, 'YYYY-MM-DD')
       console.log(i)
 
       while (i < this.dataToCalendar[2]) {
         console.log(i)
         console.log('sadsadmasomd')
         i += 1
-        for (let b = 0; b < 7; b++) {
-          formattedString = date.addToDate(formattedString, { days: 1 })
-          fakeList.push([formattedString, i + ':00-' + (i + 1) + ':00'])
-        }
+        fakeList.push(i + ':00-' + (i + 1) + ':00')
       }
       return fakeList
+    },
+    datemaker: function () {
+      const timeStamp = Date.now()
+      let formattedString = date.formatDate(timeStamp, 'YYYY-MM-DD')
+      const dateList = []
+      for (let b = 0; b < 7; b++) {
+        formattedString = date.addToDate(formattedString, { days: 1 })
+        dateList.push(formattedString)
+      }
+      return dateList
     }
   }
 }
