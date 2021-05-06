@@ -1,8 +1,8 @@
 <template>
-  <div style="background-color: white;" class="row">
-    <div v-for="date in dateMaker" :key="date" class="col">
+  <div style="background-color: white;" class="row ">
+    <div v-for="date in dateMaker" :key="date" class="col q-pa-md">
       <div v-for="time in timeMaker" :key="time" class="row">
-        {{time}}
+        <q-btn>{{time}}</q-btn>
       </div>
     </div>
   </div>
@@ -51,5 +51,7 @@ export default {
 </script>
 
 <style>
-
+  .button:hover{
+    color:green;
+  }
 </style>
