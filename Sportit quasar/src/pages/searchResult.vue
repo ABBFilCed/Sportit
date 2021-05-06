@@ -9,7 +9,7 @@
           class="row q-pa-lg"
           style="border-bottom-style: solid; border-width: 2px; border-color: gainsboro;"
         >
-          <q-btn @click="calendarFunction(item.name, item.openTime, item.closeTime, item.booked)" style="width:100%;" unelevated class="q-pa-sm">
+          <q-btn @click="calendarFunction(item.name, item.openTime, item.closeTime, item.booked, item.id)" style="width:100%;" unelevated class="q-pa-sm">
             <q-img
               src="../images/sportit-logga-clean-liten.png"
               width="150px"
@@ -104,11 +104,11 @@ export default {
         // console.log(res)
       })
     },
-    calendarFunction (name, openTime, closeTime, booked) {
+    calendarFunction (name, openTime, closeTime, booked, id) {
       this.showCalendar = true
       // console.log(e)
       const listNew = []
-      listNew.push(name, openTime, closeTime, booked)
+      listNew.push(name, openTime, closeTime, booked, id)
       this.sendData = listNew
     }
   },
