@@ -24,11 +24,12 @@
         </q-card-section>
 
         <q-card-section class="q-pt-none">
-          Du har nu bokat tiden {{bookedTime}} i {{dataToCalendar[0]}}
+          Du håller på att boka tiden {{bookedTime}} i {{dataToCalendar[0]}}
         </q-card-section>
 
         <q-card-actions align="right">
-          <q-btn flat label="OK" color="primary" v-close-popup />
+          <q-btn flat label="Avbryt" color="primary" v-close-popup />
+          <q-btn flat label="Acceptera" color="primary" v-close-popup @click="bookConfirm()" />
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -51,6 +52,9 @@ export default {
     book (e) {
       this.confirmBook = true
       this.bookedTime = e
+    },
+    bookConfirm () {
+      console.log('bokat')
     }
   },
   computed: {
