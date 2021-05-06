@@ -24,8 +24,14 @@
         </div>
       </div>
     </div>
-    <q-dialog v-model="showCalendar">
-        <calendar-component :dataToCalendar = "sendData"/>
+    <q-dialog
+      v-model="showCalendar"
+      persistent
+      :maximized="maximizedToggle"
+      transition-show="slide-up"
+      transition-hide="slide-down"
+    >
+      <calendar-component :dataToCalendar = "sendData"/>
     </q-dialog>
   </q-page>
 </template>
@@ -46,6 +52,7 @@ export default {
       searchData: [],
       sendData: [],
       showCalendar: false,
+      maximizedToggle: true,
       clubs: [
         {
           id: 0,

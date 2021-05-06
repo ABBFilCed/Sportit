@@ -1,8 +1,16 @@
 <template>
-  <div style="background-color: white;" class="row ">
-    <div v-for="date in dateMaker" :key="date" class="col q-pa-md">
-      <div v-for="time in timeMaker" :key="time" class="row">
-        <q-btn>{{time}}</q-btn>
+  <div style="background-color: white;" >
+    <q-bar>
+      <q-space />
+      <q-btn dense flat icon="close" v-close-popup>
+        <q-tooltip content-class="bg-white text-primary">Close</q-tooltip>
+      </q-btn>
+    </q-bar>
+    <div class="row">
+      <div v-for="date in dateMaker" :key="date" class="col">
+        <div v-for="time in timeMaker" :key="time" class="row">
+          <q-btn class="button q-ma-sm">{{time}}</q-btn>
+        </div>
       </div>
     </div>
   </div>
