@@ -1,10 +1,9 @@
 <template>
-  <div style="background-color: white;">
-      {{ dataToCalendar }}
-      {{ timeMaker }}
-      {{ datemaker }}
-    <div >
-
+  <div style="background-color: white;" class="row">
+    <div v-for="date in dateMaker" :key="date" class="col">
+      <div v-for="time in timeMaker" :key="time" class="row">
+        {{time}}
+      </div>
     </div>
   </div>
 </template>
@@ -37,7 +36,7 @@ export default {
       }
       return fakeList
     },
-    datemaker: function () {
+    dateMaker: function () {
       const timeStamp = Date.now()
       let formattedString = date.formatDate(timeStamp, 'YYYY-MM-DD')
       const dateList = []
