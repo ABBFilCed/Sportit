@@ -55,6 +55,7 @@ export default {
     },
     bookConfirm () {
       console.log('bokat')
+      window.location.reload()
     }
   },
   computed: {
