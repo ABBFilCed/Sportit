@@ -6,13 +6,17 @@
         <q-tooltip content-class="bg-white text-primary">Close</q-tooltip>
       </q-btn>
     </q-bar>
+    <div class="col q-pa-lg ">
+    <h5 class="row justify-center" style="margin-top:20px;">Boka tid</h5>
     <div class="row">
-      <div v-for="date in dateMaker" :key="date" class="col">
-        <div v-for="time in timeMaker" :key="time" class="row">
-          <q-btn class="button q-ma-sm">{{time}}</q-btn>
-        </div>
+      <div v-for="date in dateMaker" :key="date" class="col text-center">
+        <h6>{{date}}</h6>
+      <div v-for="time in timeMaker" :key="time">
+          <q-btn flat  class="button" style="width:100%;">{{time}}</q-btn>
+      </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -45,11 +49,11 @@ export default {
       return fakeList
     },
     dateMaker: function () {
-      const timeStamp = Date.now()
-      let formattedString = date.formatDate(timeStamp, 'YYYY-MM-DD')
+      let timeStamp = Date.now()
       const dateList = []
       for (let b = 0; b < 7; b++) {
-        formattedString = date.addToDate(formattedString, { days: 1 })
+        timeStamp = date.addToDate(timeStamp, { days: 1 })
+        const formattedString = date.formatDate(timeStamp, 'YYYY-MM-DD')
         dateList.push(formattedString)
       }
       return dateList
