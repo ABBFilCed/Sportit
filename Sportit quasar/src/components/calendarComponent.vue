@@ -1,9 +1,11 @@
 <template>
-  <div>
+  <div style="background-color: white;">
       {{ dataToCalendar }}
       {{ timeMaker }}
       {{ datemaker }}
+    <div >
 
+    </div>
   </div>
 </template>
 
