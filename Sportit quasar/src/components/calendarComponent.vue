@@ -12,11 +12,26 @@
       <div v-for="date in dateMaker" :key="date" class="col text-center">
         <h6>{{date}}</h6>
       <div v-for="time in timeMaker" :key="time">
-          <q-btn flat  class="button" style="width:100%;">{{time}}</q-btn>
+        <q-btn flat  class="button" style="width:100%;" @click="book(time)">{{time}}</q-btn>
       </div>
       </div>
     </div>
-  </div>
+    </div>
+    <q-dialog v-model="confirmBook">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6">Grattis</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none">
+          Du har nu bokat tiden {{bookedTime}} i {{dataToCalendar[0]}}
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="OK" color="primary" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </div>
 </template>
 
@@ -27,10 +42,16 @@ export default {
   data () {
     return {
       currentCalendar: [],
-      allTimes: []
+      allTimes: [],
+      confirmBook: false,
+      bookedTime: null
     }
   },
   methods: {
+    book (e) {
+      this.confirmBook = true
+      this.bookedTime = e
+    }
   },
   computed: {
     timeMaker: function () {
