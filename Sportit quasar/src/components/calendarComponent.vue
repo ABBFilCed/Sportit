@@ -38,6 +38,7 @@
 
 <script>
 import { date } from 'quasar'
+import { db } from '../boot/firebase'
 export default {
   props: ['dataToCalendar'],
   data () {
@@ -45,7 +46,8 @@ export default {
       currentCalendar: [],
       allTimes: [],
       confirmBook: false,
-      bookedTime: null
+      bookedTime: null,
+      hora: []
     }
   },
   methods: {
@@ -54,7 +56,11 @@ export default {
       this.bookedTime = e
     },
     bookConfirm () {
-      console.log('bokat')
+      this.dataToCalendar[3].push(this.bookedTime)
+      db.collection('Hallar')
+        .doc(this.dataToCalendar[4])
+        .update({ booked: this.dataToCalendar[3] })
+      console.log(this.dataToCalendar[4])
     }
   },
   computed: {
