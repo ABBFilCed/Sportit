@@ -1,6 +1,6 @@
 <template>
-  <div class="row q-ma-xl q-gutter-xl">
-    <div v-for="member in members" :key=member.id class="col">
+  <div class="row q-ma-md q-gutter-md justify-center">
+    <div v-for="member in members" :key=member.id class="col-xs-11 col-sm-4 col-md-4 col-lg-3 col-xl-3">
       <q-card class="my-card" flat bordered style="">
         <q-img
           style="max-height:300px"
@@ -35,7 +35,6 @@
             <q-card-section class="text-subitle2">
               Tel.nummer: {{member.number}}<br><br>
               Email: {{member.email}}<br><br>
-              {{member.description}}
             </q-card-section>
           </div>
         </q-slide-transition>
@@ -49,9 +48,9 @@ export default {
   data () {
     return {
       members: [
-        { id: 1, member: 'Filip Segerberg', job: 'VD', description: 'jabags', number: '123', email: 'email', image: require('../images/lillafille.png'), expanded: false },
-        { id: 2, member: 'Filip Cederblad', job: 'Webbdesigner', description: 'jabags', number: '123', email: 'email', image: require('../images/FilleC.jpg'), expanded: false },
-        { id: 3, member: 'Jenny Melkersson', job: 'Ekonom', description: 'jabags', number: '123', email: 'email', image: require('../images/jenny.png'), expanded: false }
+        { id: 1, member: 'Filip Segerberg', job: 'Verkställande Direktör', number: '072-866 03 93', email: 'filip.segerberg@sport-it.se', image: require('../images/lillafille.png'), expanded: false },
+        { id: 2, member: 'Filip Cederblad', job: 'Webbdesigner', number: '073-610 93 73', email: 'filip.cederblad@sport-it.se', image: require('../images/FilleC.jpg'), expanded: false },
+        { id: 3, member: 'Jenny Melkersson', job: 'Ekonom', number: '073-507 56 80', email: 'jenny.melkersson@sport-it.se', image: require('../images/jenny.png'), expanded: false }
       ]
     }
   }
