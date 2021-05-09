@@ -12,7 +12,7 @@
       <div v-for="date in dateMaker" :key="date" class="col text-center">
         <h6>{{date}}</h6>
       <div v-for="time in timeMaker" :key="time">
-        <q-btn flat  class="button" style="width:100%;" @click="book(time)">{{time}}</q-btn>
+        <q-btn flat  class="button" style="width:100%;" @click="book(date, time)">{{time}}</q-btn>
       </div>
       </div>
     </div>
@@ -33,6 +33,21 @@
         </q-card-actions>
       </q-card>
     </q-dialog>
+    <q-dialog v-model="occupied">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6">Denna tid är upptagen</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none">
+          försök med en annan tid istället
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="Stäng" color="primary" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </div>
 </template>
 
@@ -47,13 +62,27 @@ export default {
       allTimes: [],
       confirmBook: false,
       bookedTime: null,
-      hora: []
+      occupied: false
     }
   },
   methods: {
-    book (e) {
-      this.confirmBook = true
-      this.bookedTime = e
+    book (date, time) {
+      const booked = (date + time)
+      let i
+      for (i in this.dataToCalendar[3]) {
+        console.log('for loop')
+        console.log(this.dataToCalendar[3][i] + 'i')
+        console.log(booked + 'booked')
+        if (this.dataToCalendar[3][i] === booked) {
+          this.occupied = true
+          console.log('occupied')
+        }
+      }
+      if (this.occupied === false) {
+        console.log('falsk')
+        this.confirmBook = true
+        this.bookedTime = booked
+      }
     },
     bookConfirm () {
       this.dataToCalendar[3].push(this.bookedTime)
@@ -61,8 +90,6 @@ export default {
         .doc(this.dataToCalendar[4])
         .update({ booked: this.dataToCalendar[3] })
       console.log(this.dataToCalendar[4])
-      console.log('bokat')
-      window.location.reload()
     }
   },
   computed: {
@@ -70,9 +97,8 @@ export default {
       console.log('hej')
       console.log(this.dataToCalendar)
       const fakeList = []
-      let i = this.dataToCalendar[1]
+      let i = (this.dataToCalendar[1] - 1)
       console.log(i)
-      let a
       while (i < this.dataToCalendar[2]) {
         console.log(i)
         console.log('sadsadmasomd')
@@ -81,14 +107,7 @@ export default {
         var currentDateString = currentDate.toString()
         console.log(currentDate)
         console.log(this.dataToCalendar[3])
-        for (a in this.dataToCalendar[3]) {
-          console.log('hejhejhje')
-          console.log(a)
-          if (this.dataToCalendar[3][a] !== currentDateString) {
-            console.log('funkadåe')
-            fakeList.push(currentDateString)
-          }
-        }
+        fakeList.push(currentDateString)
       }
       return fakeList
     },
