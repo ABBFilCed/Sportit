@@ -61,6 +61,8 @@ export default {
         .doc(this.dataToCalendar[4])
         .update({ booked: this.dataToCalendar[3] })
       console.log(this.dataToCalendar[4])
+      console.log('bokat')
+      window.location.reload()
     }
   },
   computed: {
