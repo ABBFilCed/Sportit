@@ -46,6 +46,7 @@
               class="full-width text-white q-mt-lg"
               style="background-color:#404040;"
               label="Logga in"
+              v-close-popup
               @click="login" />
               <q-btn
               size="lg"

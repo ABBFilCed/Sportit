@@ -9,10 +9,10 @@
     <div class="col q-pa-lg ">
     <h5 class="row justify-center" style="margin-top:20px;">Boka tid</h5>
     <div class="row">
-      <div v-for="date in dateMaker" :key="date" class="col text-center">
-        <h6>{{date}}</h6>
+      <div v-for="date in dateMaker" :key="date" class="col text-center" style="">
+        <h6 style="border-left: solid; border-width:2px; border-color: gainsboro;" class="q-px-sm">{{date}}</h6>
       <div v-for="time in timeMaker" :key="time">
-        <q-btn flat  class="button" style="width:100%;" @click="book(date, time)">{{time}}</q-btn>
+        <q-btn flat  class="button" style="width:100%; border-left: solid; border-width:2px; border-color: gainsboro;" @click="book(date, time)">{{time}}</q-btn>
       </div>
       </div>
     </div>
@@ -48,12 +48,29 @@
         </q-card-actions>
       </q-card>
     </q-dialog>
+    <q-dialog v-model="notLoggedIn">
+      <q-card>
+        <q-card-section>
+          <div class="text-h6">Du är inte inloggad</div>
+        </q-card-section>
+
+        <q-card-section class="q-pt-none">
+          Du måste logga in för att kunna boka en tid
+        </q-card-section>
+
+        <q-card-actions align="right">
+          <q-btn flat label="Stäng" color="primary" v-close-popup />
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </div>
 </template>
 
 <script>
 import { date } from 'quasar'
 import { db } from '../boot/firebase'
+import { mapGetters } from 'vuex'
+
 export default {
   props: ['dataToCalendar'],
   data () {
@@ -62,51 +79,47 @@ export default {
       allTimes: [],
       confirmBook: false,
       bookedTime: null,
-      occupied: false
+      occupied: false,
+      notLoggedIn: false
     }
   },
   methods: {
     book (date, time) {
       const booked = (date + time)
       let i
-      for (i in this.dataToCalendar[3]) {
-        console.log('for loop')
-        console.log(this.dataToCalendar[3][i] + 'i')
-        console.log(booked + 'booked')
-        if (this.dataToCalendar[3][i] === booked) {
-          this.occupied = true
-          console.log('occupied')
+      if (this.isAuthenticated === true) {
+        for (i in this.dataToCalendar[3]) {
+          if (this.dataToCalendar[3][i] === booked) {
+            this.occupied = true
+          }
         }
-      }
-      if (this.occupied === false) {
-        console.log('falsk')
-        this.confirmBook = true
-        this.bookedTime = booked
+        if (this.occupied === false) {
+          this.confirmBook = true
+          this.bookedTime = booked
+        }
+      } else {
+        this.notLoggedIn = true
       }
     },
     bookConfirm () {
       this.dataToCalendar[3].push(this.bookedTime)
+      const userTime = (this.bookedTime + this.currentUser)
+      this.dataToCalendar[5].push(userTime)
       db.collection('Hallar')
         .doc(this.dataToCalendar[4])
         .update({ booked: this.dataToCalendar[3] })
-      console.log(this.dataToCalendar[4])
+      window.location.reload()
     }
   },
   computed: {
     timeMaker: function () {
-      console.log('hej')
-      console.log(this.dataToCalendar)
       const fakeList = []
       let i = (this.dataToCalendar[1] - 1)
       console.log(i)
       while (i < this.dataToCalendar[2]) {
-        console.log(i)
-        console.log('sadsadmasomd')
         i += 1
         const currentDate = (i + ':00-' + (i + 1) + ':00')
         var currentDateString = currentDate.toString()
-        console.log(currentDate)
-        console.log(this.dataToCalendar[3])
         fakeList.push(currentDateString)
       }
       return fakeList
@@ -120,7 +133,9 @@ export default {
         dateList.push(formattedString)
       }
       return dateList
-    }
+    },
+    ...mapGetters('auth', ['isAuthenticated']),
+    ...mapGetters('user', ['currentUser'])
   }
 }
 </script>
